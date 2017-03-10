@@ -6,6 +6,7 @@ public class Main {
 	
 	public static void main(String[] args) {
 		//Starting the Thread for the Leap Motion Sensor
+		
 		thread=new Thread(LeapMotion);
 		thread.start();
 	}
