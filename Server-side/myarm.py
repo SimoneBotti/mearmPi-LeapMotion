@@ -23,25 +23,25 @@ def moveArm(con,arm1,coord):
     print(coord[2])
 #controlli fine corsa motori
     #Asse X
- #   if coord[0]<=-190:
- #       coord[0]=coord[0]+10
- #   elif coord[0]>=190:
- #       coord[0]=coord[0]-10
+    if coord[0]<=-190:
+        coord[0]=coord[0]+10
+    elif coord[0]>=190:
+        coord[0]=coord[0]-10
     #Asse Y
- #   if coord[1]<=5:
-  #      coord[1]=10
-  #  elif coord[1]>=210:
-  #      coord[1]=coord[1]-10
+    if coord[1]<=5:
+        coord[1]=10
+    elif coord[1]>=210:
+        coord[1]=coord[1]-10
     #Asse Z
- #   if coord[2]==-150:
- #       coord[2]=coord[2]+10
- #   elif coord[2]==150:
- #       coord[2]=coord[2]-10
- #   preciseMove(arm,coord[0],1,1)
- #   preciseMove(arm,coord[1],1,2)
- #   preciseMove(arm,coord[2],1,3)
+    if coord[2]==-150:
+        coord[2]=coord[2]+10
+    elif coord[2]==150:
+        coord[2]=coord[2]-10
+    preciseMove(arm,coord[0],1,1)
+    preciseMove(arm,coord[1],1,2)
+    preciseMove(arm,coord[2],1,3)
     arm.gotoPoint(coord[0],100,50)
- #   print("end movement")
+    print("end movement")
  #   con.send("0go".encode())
  #   print("go sended")
 
