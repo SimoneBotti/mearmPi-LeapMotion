@@ -53,31 +53,8 @@ public class LeapListener extends Listener {
 	            x=handCenter.get(0);
 	            y=handCenter.get(1);
 	            z=handCenter.get(2);
-	           // System.out.println(String.valueOf(x));
-	         // Get fingers
-	   /*         for (Finger finger : hand.fingers()) {
-	            	
-	            //	System.out.println("fingers getted");
-	            	//Get Bones
-	                for(Bone.Type boneType : Bone.Type.values()) {
-	                    Bone bone = finger.bone(boneType);
-	                    String type=boneType.getClass().getName();
-	                    System.out.println(type);
-	                    System.out.println("      " + bone.type()+ " bone" );
-	                   
-	                }
-	            }*/
 	            leapmotion.setCoordinate(x,y,z);
-	    /**
-	     * 	Mi fermo e aspetto che il raspberry mi dia il via libera per mandare le prossime coordinate
-	     * 	Il raspberry è in attesa della fine del movimento del braccio
-	     */
-	     /*       String msg=leapmotion.readMessage();
-	            System.out.println("leap listener string"+msg);
-	            if(msg.equals("go")){
-	            	System.out.println("You can go ahead");
-	            }
-	       */     
+			
 	            // Get the hand's normal vector and direction
 	            Vector normal = hand.palmNormal();
 	            Vector direction = hand.direction();
@@ -90,25 +67,6 @@ public class LeapListener extends Listener {
 	    }
 	   public void setLeapMotion(LeapMotion leap){
 		   this.leapmotion=leap;
-	//	   System.out.println("leap:"+this.leapmotion);
 	   }
 
 }
-
-
-
-
-// Calculate the hand's pitch, roll, and yaw angles
-//     System.out.println("  pitch: " + Math.toDegrees(direction.pitch()) + " degrees, "
-//                      + "roll: " + Math.toDegrees(normal.roll()) + " degrees, "
-//                     + "yaw: " + Math.toDegrees(direction.yaw()) + " degrees");
-
-
-//        System.out.println("  Arm direction: " + arm.direction()
-//                         + ", wrist position: " + arm.wristPosition()
-//                         + ", elbow position: " + arm.elbowPosition());
-
-
-//System.out.println("    " + finger.type() + ", id: " + finger.id()
-//                              + ", length: " + finger.length()
-//                              + "mm, width: " + finger.width() + "mm");
