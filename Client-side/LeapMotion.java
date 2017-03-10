@@ -53,10 +53,13 @@ public class LeapMotion extends Thread implements Runnable{
 	}
 
 	public void setCoordinate(float x,float y,float z){
+		//Convert coordinates to int
 		this.x=(int) x;
 		this.y=(int) y;
 		this.z=(int) z;
+		
 		this.x=this.x/2;
+		//Control Coordinates
 		if (this.x<0){
 			this.x=1000-this.x;
 		}
@@ -67,8 +70,10 @@ public class LeapMotion extends Thread implements Runnable{
 			this.z=1000-this.z;
 		}
 		try {
+			//Formatting string to send to the server
 			System.out.println("x:"+String.valueOf(this.x) +" y:"+String.valueOf(this.y)+" z:"+String.valueOf(this.z)+" Gripper:"+toggle);	
 			coord=this.x+":"+this.y+":"+this.z+":"+this.toggle;
+			//send string to server
 			client.sendMessage(coord);
 			this.sleep(50);
 			System.out.println("message sent");
