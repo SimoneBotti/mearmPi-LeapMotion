@@ -5,9 +5,9 @@ import time
 
 
 def moveArm(con,arm1,coord):
-#ottengo il parametro dell oggetto del braccio
+#get the arm object
     arm=arm1
-#inizializzazione braccio
+#initialize the arm
     type(coord[0])
  #   m=re.search(r'\d+',coord[0])
  #   numeric=m.group()
@@ -21,18 +21,18 @@ def moveArm(con,arm1,coord):
     numeric=m.group()
     coord[2]=int(numeric)
     print(coord[2])
-#controlli fine corsa motori
-    #Asse X
+#control the limit of the motors
+    #X axis
     if coord[0]<=-190:
         coord[0]=coord[0]+10
     elif coord[0]>=190:
         coord[0]=coord[0]-10
-    #Asse Y
+    #Y axis
     if coord[1]<=5:
         coord[1]=10
     elif coord[1]>=210:
         coord[1]=coord[1]-10
-    #Asse Z
+    #Z axis
     if coord[2]==-150:
         coord[2]=coord[2]+10
     elif coord[2]==150:
@@ -105,17 +105,16 @@ def closeHand(arm):
     arm.closeGripper()
 
 def createSocket():
-    #varibile braccio
+    #get the arm
     arm=meArm.meArm()
     arm.begin()
-    #varibili per i socket
+    #Socket data
     HOST=''
     PORT=49676
-
-    #liste di coordinate
+    
     listOfCoordinates=[]
 
-    #Creazione server utilizzando i socket di python
+    #Creation of the server
     mysocket=socket.socket(socket.AF_INET,socket.SOCK_STREAM)
     print("Socket created")
     try:
@@ -132,7 +131,7 @@ def createSocket():
         myCoordinates=[]
         while 1:
                 try:
-                    #Ricevo il dato attraverso il socket
+                    #get the coordinates from the socket
                     data=conn.recv(512)
                     stringdata=data.decode('utf-8')
                     if stringdata=="":
